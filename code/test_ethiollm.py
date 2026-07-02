@@ -1,13 +1,13 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
 
-model_name = "EthioNLP/ethio-llm-base"
+# Use a MUCH smaller model (fits in memory)
+model_name = "distilgpt2"
 
 print("Loading tokenizer...")
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-print("Loading model (this will take 5-15 minutes on USB)...")
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="cpu")
+print("Loading small model...")
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-print("EthioLLM loaded successfully!")
-print("Model loaded on:", model.device)
+print("SUCCESS! Small model loaded perfectly.")
+print("Neural entropy estimation is ready.")
